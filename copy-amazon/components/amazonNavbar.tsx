@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Icon from 'react-icons';
 import Link from 'next/link';
 import { ImLocation2 } from "react-icons/im";
 import { FiSearch } from "react-icons/fi";
@@ -7,6 +6,7 @@ import { IoLanguageOutline } from "react-icons/io5";
 import { FaCartPlus } from "react-icons/fa6";
 import { GrHomeRounded } from "react-icons/gr";
 import { MdOutlineDensitySmall } from "react-icons/md";
+
 export default function Navbar() {
   return (
       <>
@@ -70,7 +70,7 @@ export default function Navbar() {
          <Link href="./all">All</Link> 
         </div>
         <div className="panel-item">
-          <p className="Border"><Link href="./todays-deals">Today's Deals</Link></p>
+          <p className="Border"><Link href={"./todays-deals"}>Todays Deals</Link></p>
           <p className="Border"><Link href={"./customer-service"}>Customer Service</Link></p>
           <p className="Border"><Link href={"./registry"}>Registry</Link></p>
           <p className="Border"><Link href={"./gift-cards"}>Gift Cards</Link></p>
