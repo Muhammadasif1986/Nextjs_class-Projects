@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
           </div>
           <div 
-          className="w-full mt-28 ml-72 p-0 items-end"><Image src={cover} alt="cover Picture" className="w-full h-full" />
+          className="flex justify-center w-full mt-28 p-0 items-end"><Image src={cover} alt="cover Picture" className="w-full h-screen bg-cover" />
           </div>
         </div>
         </header>
