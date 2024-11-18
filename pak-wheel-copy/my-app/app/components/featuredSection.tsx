@@ -17,7 +17,7 @@ export default function FeaturedSection() {
   return (
     <section className= {inter.className}>
       <div className="flex justify-center items-center bg-gray-200 w-full h-auto mt-10">
-        <div className="w-8/12">
+        <div className="w-8/12 lg:w-10/12">
 
         <div className="flex justify-between py-14">
           <h1 className="text-2xl">Featured New Cars</h1>
@@ -33,7 +33,9 @@ export default function FeaturedSection() {
           <hr className="border-2 border-gray-300" />
         </div>
 
-        <section className="flex justify-between pb-20 w-full h-auto mt-5 ">
+        <section 
+        className="flex flex-col items-center gap-4  justify-between pb-20 w-full h-auto mt-5
+        lg:flex-row lg:gap-0">
           <Link href="/corolla"><div className="bg-white mr-4">
             <div className="w-full h-auto"><Image src={Corolla} alt="corolla"/></div>
             <div className="flex flex-col justify-center items-center py-5">

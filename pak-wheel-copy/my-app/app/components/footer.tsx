@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="flex flex-col justify-center items-center bg-gray-700 w-full h-auto pb-20 pt-10">
-        <div className="flex w-1/2 h-auto justify-center items-center text-yellow-100 text-xl">
+        <div className="flex w-full h-auto justify-center items-center text-yellow-100 text-xl lg:w-1/2">
           <div className=" h-auto w-32 flex justify-center items-end">
             <Image src={logo} alt="Logo" className="w-2/3" />
           </div>
@@ -15,8 +15,8 @@ export default function Footer() {
             Student of Certified Cloud Applied Generative AI Engineer (GenEng)
           </div>
         </div>
-        <div className="flex justify-between items-center w-8/12">
-          <div className="flex flex-col w-full pl-72">
+        <div className="flex justify-between items-center w-full lg:w-8/12">
+          <div className="flex flex-col justify-center items-center w-full">
             <h1 className="text-green-100 text-lg font-medium pt-4">
               <span className="font-normal text-lg pr-5 text-yellow-100">
                 Create By :

@@ -20,8 +20,9 @@ export default function HeroSection() {
           </div>
 
         </div>
-        <section className="flex justify-center border-x-2 border-b-2 w-8/12 h-auto py-12 px-10">
-          <div className="w-1/2 pl-16 text-sm">
+        <section className="flex flex-1 justify-center items-center border-x-2 border-b-2 w-full h-auto py-10 px-2 
+        lg:w-8/12 lg:py-12 lg:px-10">
+          <div className="w-1/2 text-sm lg:pl-16">
             <h1 className="flex font-semibold text-xl text-blue-800">
               Post your Ad on PakWheels
             </h1>
@@ -58,7 +59,7 @@ export default function HeroSection() {
             <span className="flex-grow h-20 border-2 bg-gray-300"></span>
           </div>
 
-          <div className="w-1/2 pl-16 text-sm">
+          <div className="w-1/2 text-sm lg:pl-16">
             <h1 className="flex font-semibold text-xl text-blue-800">
               Try PakWheels Sell It For Me
             </h1>
