@@ -12,7 +12,7 @@ export default function Navbar() {
     <div>
       <header>
         <nav className={inter.className}>
-          <div className="flex flex-col justify-normal text-red-50 bg-slate-950 w-full h-auto items-center">
+          <div className="flex flex-col justify-normal text-red-50 bg-slate-950 w-full h-auto items-center pb-2">
             <div className="flex justify-between bg-black w-3/4 border-b-slate-700 border-b-2 h-10">
               <div className="flex items-center h-auto text-red-50 text-xs font-semibold w-full">
                 <span
