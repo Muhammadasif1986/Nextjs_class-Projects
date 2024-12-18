@@ -20,7 +20,7 @@ export default function HeroSection() {
           </div>
 
         </div>
-        <section className="flex flex-1 justify-center items-center border-x-2 border-b-2 w-full h-auto py-10 px-2 
+        <section className="flex flex-1 justify-center items-center border-x-2 border-b-2 w-11/12 h-auto py-10 px-2 
         lg:w-8/12 lg:py-12 lg:px-10">
           <div className="w-1/2 text-sm lg:pl-16">
             <h1 className="flex font-semibold text-xl text-blue-800">

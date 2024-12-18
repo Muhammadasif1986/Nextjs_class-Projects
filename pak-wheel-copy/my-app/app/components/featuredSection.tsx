@@ -1,12 +1,9 @@
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import Corolla from "../../public/Corolla-X.jpg";
-import Alto from "../../public/Suzuki_Alto_-_PNG.png";
-import HondaCity from "../../public/Honda_City_Front.jpg";
-import Civic from "../../public/Honda civic.jpg";
 import { MdOutlineStarOutline } from "react-icons/md";
 import { MdOutlineStar } from "react-icons/md";
+import Product from "../ProductDetails/[product]/page";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,10 +11,23 @@ const inter = Inter({
 });
 
 export default function FeaturedSection() {
+  interface Cars{
+    carImage:string
+    carName:string,
+    carPrice:string,
+    carReviews:number
+  }
+  
+  let carDetails:Cars[] =[
+    {carImage:"/Corolla-X.jpg", carName:"Corolla",carPrice:"59.7-75.5",carReviews:621  },
+    {carImage:"/Suzuki_Alto_-_PNG.png", carName:"Suzuki Alto",carPrice:"23.7-30.5",carReviews:199},
+    {carImage:"/Honda_City_Front.jpg", carName:"Honda City",carPrice:"32.7-55.5",carReviews:491  },
+    {carImage:"/Honda civic.jpg", carName:"Honda Civic",carPrice:"34.7-80.5",carReviews:321  },
+  ]
   return (
     <section className= {inter.className}>
       <div className="flex justify-center items-center bg-gray-200 w-full h-auto mt-10">
-        <div className="w-8/12 lg:w-10/12">
+        <div className="w-11/12 md:w-10/12 lg:w-8/12">
 
         <div className="flex justify-between py-14">
           <h1 className="text-2xl">Featured New Cars</h1>
@@ -25,7 +35,7 @@ export default function FeaturedSection() {
         </div>
 
         <div>
-          <ul className="flex w-2/6 justify-between">
+          <ul className="flex w-full justify-between md:w-3/6">
             <Link href="#"><li className="active:font-semibold border-b-4 active:border-blue-700 pb-2">Popular</li></Link>
             <Link href="#"><li className="active:font-semibold border-b-4 active:border-blue-700 pb-2">Upcoming</li></Link>
             <Link href="#"><li className="active:font-semibold border-b-4 active:border-blue-700 pb-2">Newly Lunched</li></Link>
@@ -34,65 +44,32 @@ export default function FeaturedSection() {
         </div>
 
         <section 
-        className="flex flex-col items-center gap-4  justify-between pb-20 w-full h-auto mt-5
-        lg:flex-row lg:gap-0">
-          <Link href="/corolla"><div className="bg-white mr-4">
-            <div className="w-full h-auto"><Image src={Corolla} alt="corolla"/></div>
+        className="flex flex-col gap-7 justify-between items-center mt-5 mb-10
+        md:grid lg:grid-cols-4 lg:gap-7 md:grid-cols-2">
+          {
+carDetails.map((Cars)=>{
+  return(
+    <Link href="/ProductDetails/product"><div className="bg-white mr-4">
+            <div className="w-full h-auto"><Image src={Cars.carImage} alt="corolla" width={300} height={300}/></div>
             <div className="flex flex-col justify-center items-center py-5">
-              <h1 className="text-blue-900 text-base font-semibold">Toyota Corolla</h1>
-              <p className="text-green-500 text-base">PKR 59.7-75.5 lacs</p>
+              <h1 className="text-blue-900 text-base font-semibold">{Cars.carName}</h1>
+              <p className="text-green-500 text-base">PKR {Cars.carPrice}</p>
               <div className="flex items-center py-4">
                 <span className="flex items-center text-base text-orange-500">
                   <MdOutlineStar /><MdOutlineStar /><MdOutlineStar /><MdOutlineStarOutline /><MdOutlineStarOutline />
-                  </span><p className="text-blue-700 text-sm">621 Reviews</p></div>
+                  </span><p className="text-blue-700 text-sm">{Cars.carReviews} Reviews</p></div>
             </div>
-          </div>
+          </div>          
         </Link>
-
-        <Link href="/alto"><div className="bg-white mr-4">
-            <div className="w-full h-auto"><Image src={Alto} alt="alto"/></div>
-            <div className="flex flex-col justify-center items-center py-5">
-              <h1 className="text-blue-900 text-base font-semibold">Suzuki Alto</h1>
-              <p className="text-green-500 text-base">PKR 23.3-30.5 lacs</p>
-              <div className="flex items-center py-4">
-                <span className="flex items-center text-base text-orange-500">
-                  <MdOutlineStar /><MdOutlineStar /><MdOutlineStar /><MdOutlineStarOutline /><MdOutlineStarOutline />
-                  </span><p className="text-blue-700 text-sm">199 Reviews</p></div>
-            </div>
-          </div>
-        </Link>
-
-        <Link href="./hondacity"><div className="bg-white mr-4">
-            <div className="w-full h-auto"><Image src={HondaCity} alt="city"/></div>
-            <div className="flex flex-col justify-center items-center py-5">
-              <h1 className="text-blue-900 text-base font-semibold">Honda City</h1>
-              <p className="text-green-500 text-base">PKR 46.5-58.5 lacs</p>
-              <div className="flex items-center py-4">
-                <span className="flex items-center text-base text-orange-500">
-                  <MdOutlineStar /><MdOutlineStar /><MdOutlineStar /><MdOutlineStarOutline /><MdOutlineStarOutline />
-                  </span><p className="text-blue-700 text-sm">458 Reviews</p></div>
-            </div>
-          </div>
-        </Link>
-
-        <Link href="/civic"><div className="bg-white mr-4">
-            <div className="w-full h-auto"><Image src={Civic} alt="civic"/></div>
-            <div className="flex flex-col justify-center items-center py-5">
-              <h1 className="text-blue-900 text-base font-semibold">Honda Civic</h1>
-              <p className="text-green-500 text-base">PKR 86.6-99.00 lacs</p>
-              <div className="flex items-center py-4">
-                <span className="flex items-center text-base text-orange-500">
-                  <MdOutlineStar /><MdOutlineStar /><MdOutlineStar /><MdOutlineStarOutline /><MdOutlineStarOutline />
-                  </span><p className="text-blue-700 text-sm">6.7 Reviews</p></div>
-            </div>
-          </div>
-        </Link>
-          
-        </section>
-
-
-      </div>
-      </div>
-    </section>
   )
-}
+})
+}     
+
+
+        </section>
+      </div>
+      </div>
+      
+    </section>
+    
+  )}

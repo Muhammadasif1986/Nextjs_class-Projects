@@ -102,7 +102,7 @@ export default function Navbar() {
               </div>
               </div>
               <div>
-                <button className="px-4 py-2 rounded-md font-bold bg-rose-600">
+                <button className="px-4 py-2 rounded-md font-bold bg-rose-600 lg:mr-4">
                   Post an Ad
                   <select className="bg-transparent h-5 w-4">
                     <option value="1"></option>

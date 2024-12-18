@@ -24,7 +24,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {carDetails.map((car, index) => (
             <FeaturedCards
-              key={index} // Add the unique key prop
+              key={index}
               carImage={car.carImage}
               carName={car.carName}
               carPrice={car.carPrice}
