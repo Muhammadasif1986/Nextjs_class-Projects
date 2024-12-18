@@ -10,13 +10,14 @@ export default async function Todos() {
     <div className='w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-flow-row-dense font-[poppins]'>
       {respond.map((todo:any) => {
             return(
-
+<div key={todo}>
       <Link href={`${todo.id}`}>
       <div className='border-[2px] border-blue-900 m-2 text-center p-2 rounded-lg bg-[#0d0d0d] text-white'>
           <p>{todo.id}</p>
           <p>{todo.title}</p>
       </div>
         </Link>
+       </div> 
       )
       })}
     </div>
