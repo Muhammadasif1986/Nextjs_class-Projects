@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineStarOutline } from "react-icons/md";
 import { MdOutlineStar } from "react-icons/md";
-import Product from "../ProductDetails/[product]/page";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,17 +11,18 @@ const inter = Inter({
 
 export default function FeaturedSection() {
   interface Cars{
-    carImage:string
+    id:string,
+    carImage:string,
     carName:string,
     carPrice:string,
     carReviews:number
   }
   
   let carDetails:Cars[] =[
-    {carImage:"/Corolla-X.jpg", carName:"Corolla",carPrice:"59.7-75.5",carReviews:621  },
-    {carImage:"/Suzuki_Alto_-_PNG.png", carName:"Suzuki Alto",carPrice:"23.7-30.5",carReviews:199},
-    {carImage:"/Honda_City_Front.jpg", carName:"Honda City",carPrice:"32.7-55.5",carReviews:491  },
-    {carImage:"/Honda civic.jpg", carName:"Honda Civic",carPrice:"34.7-80.5",carReviews:321  },
+    {id:"1", carImage:"/Corolla-X.jpg", carName:"Corolla",carPrice:"59.7-75.5",carReviews:621  },
+    {id:"2", carImage:"/Suzuki_Alto_-_PNG.png", carName:"Suzuki Alto",carPrice:"23.7-30.5",carReviews:199},
+    {id:"3", carImage:"/Honda_City_Front.jpg", carName:"Honda City",carPrice:"32.7-55.5",carReviews:491  },
+    {id:"4", carImage:"/Honda civic.jpg", carName:"Honda Civic",carPrice:"34.7-80.5",carReviews:321  },
   ]
   return (
     <section className= {inter.className}>
@@ -47,9 +47,10 @@ export default function FeaturedSection() {
         className="flex flex-col gap-7 justify-between items-center mt-5 mb-10
         md:grid lg:grid-cols-4 lg:gap-7 md:grid-cols-2">
           {
-carDetails.map((Cars)=>{
+carDetails.map((Cars,index)=>{
   return(
-    <Link href="/ProductDetails/product"><div className="bg-white mr-4">
+    <div key={index}>
+    <Link href={`/carsDetails/${Cars.id}`}><div className="bg-white mr-4">
             <div className="w-full h-auto"><Image src={Cars.carImage} alt="corolla" width={300} height={300}/></div>
             <div className="flex flex-col justify-center items-center py-5">
               <h1 className="text-blue-900 text-base font-semibold">{Cars.carName}</h1>
@@ -61,12 +62,11 @@ carDetails.map((Cars)=>{
             </div>
           </div>          
         </Link>
+        </div>
   )
 })
 }     
-
-
-        </section>
+ </section>
       </div>
       </div>
       
