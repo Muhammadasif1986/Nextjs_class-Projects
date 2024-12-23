@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div>
     <main className='flex flex-col justify-center items-center gap-10 py-16'>
-<h1 className='text-5xl font-semibold mt-8'>Wel come to 'JSON' Placeholder</h1>
+<h1 className='text-5xl font-semibold mt-8'>Wel come to &apos;JSON&apos; Placeholder</h1>
 <div className='grid grid-cols-1 md:grid-cols-3 space-x-11 p-6 space-y-8 lg:space-y-0'>
 
     <div className="flex flex-col justify-center items-center gap-8">
