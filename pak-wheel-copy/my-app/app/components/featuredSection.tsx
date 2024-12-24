@@ -50,7 +50,7 @@ export default function FeaturedSection() {
 carDetails.map((Cars,index)=>{
   return(
     <div key={index}>
-    <Link href={`/carsDetails/${Cars.id}`}><div className="bg-white mr-4">
+    <Link href={`/carsDetails/${Cars.carImage}`}><div className="bg-white mr-4">
             <div className="w-full h-auto"><Image src={Cars.carImage} alt="corolla" width={300} height={300}/></div>
             <div className="flex flex-col justify-center items-center py-5">
               <h1 className="text-blue-900 text-base font-semibold">{Cars.carName}</h1>

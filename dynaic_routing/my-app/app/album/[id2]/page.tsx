@@ -3,8 +3,8 @@ import React from 'react'
 import { ButtonDestructive } from '../../components/Button';
 export default async function DetailsPage(props:any) {
   console.log(props)
-      const Name = "Back to Home"
-      const Path = '/'
+      const Name = "Go Back"
+      const Path = '/album'
       
       const url2 = await fetch(`https://jsonplaceholder.typicode.com/albums/${props.params.id2}`)
       const res2 = await url2.json();

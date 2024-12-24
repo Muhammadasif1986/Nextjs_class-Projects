@@ -5,7 +5,7 @@ export default async function Photos() {
       const respond  = await url.json()
   return (
       <main className='flex flex-col justify-center items-center py-6'>
-      <h1 className='text-center mb-12 text-4xl font-bold underline'>Todos List</h1>
+      <h1 className='text-center mb-12 text-4xl font-bold underline'>Photos List</h1>
 <div className='w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-flow-row-dense font-[poppins]'>
 {respond.map((todo:any) => {
       return(
