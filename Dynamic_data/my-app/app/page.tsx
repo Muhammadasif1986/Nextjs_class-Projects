@@ -8,12 +8,13 @@ export default function Home() {
     carReviews: number;
   }
 
-  const carDetails: Car[] = [
-    { carImage: "/Corolla-X.jpg", carName: "Corolla", carPrice: "59.7-75.5", carReviews: 621 },
-    { carImage: "/Suzuki_Alto_-_PNG.png", carName: "Suzuki Alto", carPrice: "23.7-30.5", carReviews: 199 },
-    { carImage: "/Honda_City_Front.jpg", carName: "Honda City", carPrice: "32.7-55.5", carReviews: 491 },
-    { carImage: "/Honda civic.jpg", carName: "Honda Civic", carPrice: "34.7-80.5", carReviews: 321 },
+  const carDetails = [
+    { carImage: "/Corolla-X.jpg", carName: "Corolla", carPrice: "59.7-75.5", carReviews: 621, slug: "corolla" },
+    { carImage: "/Suzuki_Alto_-_PNG.png", carName: "Suzuki Alto", carPrice: "23.7-30.5", carReviews: 199, slug: "suzuki-alto" },
+    { carImage: "/Honda_City_Front.jpg", carName: "Honda City", carPrice: "32.7-55.5", carReviews: 491, slug: "honda-city" },
+    { carImage: "/Honda civic.jpg", carName: "Honda Civic", carPrice: "34.7-80.5", carReviews: 321, slug: "honda-civic" },
   ];
+  
 
   return (
     <div>
@@ -25,6 +26,7 @@ export default function Home() {
           {carDetails.map((car, index) => (
             <FeaturedCards
               key={index}
+              slug={car.slug}
               carImage={car.carImage}
               carName={car.carName}
               carPrice={car.carPrice}
