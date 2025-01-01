@@ -1,31 +1,133 @@
+
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineStarOutline } from "react-icons/md";
 import { MdOutlineStar } from "react-icons/md";
+import { urlFor } from "@/sanity/lib/image";
+import getCars from "@/getCars"
+
+
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
 
-export default function FeaturedSection() {
-  interface Cars{
-    id:string,
-    carImage:string,
-    carName:string,
-    carPrice:string,
-    carReviews:number
-  }
+interface Car {
+  name: string;
+  slug: string;
+  model: string;
+  price: string;
+  image: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  doors: number;
+  engine: string;
+  condition: string;
+  driven: string;
+  transmission: string;
+  suspension: string;
+  fuel: string;
+  milage: string;
+}
+
+export default async function FeaturedSection() {
   
-  let carDetails:Cars[] =[
-    {id:"1", carImage:"/Corolla-X.jpg", carName:"Corolla",carPrice:"59.7-75.5",carReviews:621  },
-    {id:"2", carImage:"/Suzuki_Alto_-_PNG.png", carName:"Suzuki Alto",carPrice:"23.7-30.5",carReviews:199},
-    {id:"3", carImage:"/Honda_City_Front.jpg", carName:"Honda City",carPrice:"32.7-55.5",carReviews:491  },
-    {id:"4", carImage:"/Honda civic.jpg", carName:"Honda Civic",carPrice:"34.7-80.5",carReviews:321  },
-  ]
+
+   
+ const cars = await getCars();
+ const allCar = cars;
+  //   Doors: number;
+  //   Engine: string;
+  //   Condition: string;
+  //   Driven: string;
+  //   Transmission: string;
+  //   Fuel: string;
+  //   Mileage: string;
+  // }
+  
+  // interface Car {
+  //   carImage: string;
+  //   carName: string;
+  //   carPrice: string;
+  //   carReviews: number;
+  //   slug: string;
+  //   description: CarDescription;
+  // }
+  
+  // const carDetails: Car[] = [
+  //   {
+  //     carImage: "/Corolla-X.jpg",
+  //     carName: "Corolla",
+  //     carPrice: "59.7-75.5",
+  //     carReviews: 621,
+  //     slug: "corolla",
+  //     description: {
+  //       Doors: 4,
+  //       Engine: "1600cc",
+  //       Condition: "7.5 / 10",
+  //       Driven: "15,500 km",
+  //       Transmission: "Auto",
+  //       Fuel: "Petrol",
+  //       Mileage: "20, km",
+  //     },
+  //   },
+  //   {
+  //     carImage: "/Suzuki_Alto_-_PNG.png",
+  //     carName: "Suzuki Alto",
+  //     carPrice: "23.7-30.5",
+  //     carReviews: 199,
+  //     slug: "suzuki-alto",
+  //     description: {
+  //       Doors: 4,
+  //       Engine: "800cc",
+  //       Condition: "7.5 / 10",
+  //       Driven: "15,500 km",
+  //       Transmission: "Auto",
+  //       Fuel: "Petrol",
+  //       Mileage: "20, km",
+  //     },
+  //   },
+  //   {
+  //     carImage: "/Honda_City_Front.jpg",
+  //     carName: "Honda City",
+  //     carPrice: "32.7-55.5",
+  //     carReviews: 491,
+  //     slug: "honda-city",
+  //     description: {
+  //       Doors: 4,
+  //       Engine: "1600cc",
+  //       Condition: "7.5 / 10",
+  //       Driven: "15,500 km",
+  //       Transmission: "Auto",
+  //       Fuel: "Petrol",
+  //       Mileage: "20, km",
+  //     },
+  //   },
+  //   {
+  //     carImage: "/Honda civic.jpg",
+  //     carName: "Honda Civic",
+  //     carPrice: "34.7-80.5",
+  //     carReviews: 321,
+  //     slug: "honda-civic",
+  //     description: {
+  //       Doors: 4,
+  //       Engine: "1600cc",
+  //       Condition: "7.5 / 10",
+  //       Driven: "15,500 km",
+  //       Transmission: "Auto",
+  //       Fuel: "Petrol",
+  //       Mileage: "20, km",
+  //     },
+  //   },
+  // ];
+
   return (
-    <section className= {inter.className}>
+    <main className={inter.className}>
       <div className="flex justify-center items-center bg-gray-200 w-full h-auto mt-10">
         <div className="w-11/12 md:w-10/12 lg:w-8/12">
 
@@ -47,20 +149,30 @@ export default function FeaturedSection() {
         className="flex flex-col gap-7 justify-between items-center mt-5 mb-10
         md:grid lg:grid-cols-4 lg:gap-7 md:grid-cols-2">
           {
-carDetails.map((Cars,index)=>{
+allCar.map((Cars:Car)=>{
   return(
-    <div key={index}>
-    <Link href={`/carsDetails/${Cars.carImage}`}><div className="bg-white mr-4">
-            <div className="w-full h-auto"><Image src={Cars.carImage} alt="corolla" width={300} height={300}/></div>
+    <div key={Cars.slug}>
+    <Link href={`/carDetails/${Cars.slug}`}><div className="bg-white mr-4">
+            <div className="w-full h-auto">
+            {Cars.image && (
+                    <Image
+                      src={urlFor(Cars.image).width(500).height(300).url()}
+                      alt={`${Cars.name}`}
+                      width={300}
+                      height={300}
+                    />
+                  )}
+            </div>
             <div className="flex flex-col justify-center items-center py-5">
-              <h1 className="text-blue-900 text-base font-semibold">{Cars.carName}</h1>
-              <p className="text-green-500 text-base">PKR {Cars.carPrice}</p>
+              <h1 className="text-blue-900 text-base font-semibold">{Cars.name}</h1>
+              <p className="text-green-500 text-base">PKR {Cars.price}</p>
               <div className="flex items-center py-4">
                 <span className="flex items-center text-base text-orange-500">
                   <MdOutlineStar /><MdOutlineStar /><MdOutlineStar /><MdOutlineStarOutline /><MdOutlineStarOutline />
-                  </span><p className="text-blue-700 text-sm">{Cars.carReviews} Reviews</p></div>
-            </div>
-          </div>          
+                  </span><p className="text-blue-700 text-sm">{Cars.model}</p>
+                  </div>
+            </div>       
+            </div>              
         </Link>
         </div>
   )
@@ -70,6 +182,6 @@ carDetails.map((Cars,index)=>{
       </div>
       </div>
       
-    </section>
+    </main>
     
   )}

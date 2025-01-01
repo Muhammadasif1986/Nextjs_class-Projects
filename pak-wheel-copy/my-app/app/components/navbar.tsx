@@ -3,10 +3,12 @@ import Link from "next/link";
 import { MdAppShortcut } from "react-icons/md";
 import Image from "next/image";
 import pwLogo from "../../public/pakwheelLogo.svg";
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
+
 export default function Navbar() {
   return (
     <div>
@@ -40,7 +42,7 @@ export default function Navbar() {
               </div>
             </div>
             <div className="flex flex-col w-full h-full items-center lg:flex-row">
-              <div className=" flex justify-center justify-around w-3/12 h-22 ml-16">
+              <div className=" flex  justify-around w-3/12 h-22 ml-16">
                 <Image
                   className="text-0.5rem"
                   src={pwLogo}
